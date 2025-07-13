@@ -35,21 +35,25 @@ app.get('/contato', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, 'views', 'contato.html'));
 });
 
-let lastContact = null;
-
 app.post('/contato', (req, res) => {
-    lastContact = req.body;
-    res.redirect('/contato-recebido');
+    const { nome, email, assunto, mensagem } = req.body;
+
+    if (!nome || !email || !assunto || !mensagem) {
+        return res.redirect('/not-found');
+    }
+    
+    const params = new URLSearchParams({ nome, email, assunto, mensagem }).toString();
+    res.redirect(`/contato-recebido?${params}`);
 });
 
 app.get('/contato-recebido', (req, res) => {
-    if (!lastContact) {
-        return res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    const { nome, email, assunto, mensagem } = req.query;
+
+    if (!nome || !email || !assunto || !mensagem) {
+        return res.redirect('/not-found');
     }
 
-    const { nome, email, assunto, mensagem } = lastContact;
-
-    res.status(200).send(`
+    res.status(200).type('html').send(`
         <h1>Agradecemos sua mensagem, ${nome}!</h1>
         <p>E-mail: ${email}</p>
         <p>Assunto: ${assunto}</p>
