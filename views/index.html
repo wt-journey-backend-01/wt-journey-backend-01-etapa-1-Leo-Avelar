@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBurger</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/scripts/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>DevBurger</h1>
+    </header>
+
+    <main>
+        <h2>Cardápio</h2>
+        <section>
+            <div class="cardapio" id="cardapio"></div>
+        <section>
+        
+        <h2>Sugestão</h2>
+        <article>
+            <form action="/sugestao" method="GET">
+                <div>
+                    <label for="name">Informe o nome do lanche:</label>
+                    <input type="text" id="name" name="nome" required>
+                </div>
+
+                <div>
+                    <label for="ingredients">Informe os ingredientes:</label>
+                    <textarea id="ingredients" name="ingredientes" required></textarea>
+                </div>
+
+                </br>
+                <button type="submit">Enviar</button>
+            </form>
+        </article>
+    </main>
+    
+    <footer>
+        <p> &copy; 2025 DevBurger. Todos os direitos reservados.</p>
+        <a href="/contato">Entre em contato</a> | <a href="/api/lanches">API Lanches</a>
+    </footer>
+</body>
+</html>
