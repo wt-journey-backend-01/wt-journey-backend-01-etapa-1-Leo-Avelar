@@ -19,7 +19,36 @@ app.get('/sugestao', (req, res) => {
         return res.status(400).send('<h1>Erro: Parâmetros inválidos!</h1>');
     }
 
-    res.status(200).sendFile(path.join(__dirname, 'views', 'sugestao-recebida.html'));
+    res.status(200).send(`
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Sugestão Recebida - DevBurger</title>
+            <link href="/css/style.css" rel="stylesheet">
+        </head>
+        <body>
+            <header>
+                <h1 class="title">DevBurger</h1>
+            </header>
+            <main>
+                <h2 class="section-title">Sugestão recebida!</h2>
+                <div class="form">
+                    <p>Obrigado por contribuir com o nosso cardápio!</p>
+                    <p><strong>Nome do lanche:</strong> ${nome}</p>
+                    <p><strong>Ingredientes:</strong> ${ingredientes}</p>
+                    <div style="margin-top:2.5rem;text-align:center;">
+                        <a href="/" class="btn">Voltar à página inicial</a>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <p class="footer-text">&copy; 2025 DevBurger. Todos os direitos reservados.</p>
+            </footer>
+        </body>
+        </html>
+    `);
 });
 
 app.get('/contato', (req, res) => {
@@ -44,7 +73,39 @@ app.get('/contato-recebido', (req, res) => {
         return res.redirect('/not-found');
     }
 
-    res.status(200).sendFile(path.join(__dirname, 'views', 'contato-recebido.html'));
+    res.status(200).send(`
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Mensagem Recebida - DevBurger</title>
+            <link href="/css/style.css" rel="stylesheet">
+        </head>
+        <body>
+            <header>
+                <div class="header-container">
+                    <h1>DevBurger</h1>
+                </div>
+            </header>
+            <main>
+                <h2 class="section-title">Mensagem recebida!</h2>
+                <div class="form">
+                    <p>Obrigado por entrar em contato, <strong>${nome}</strong>!</p>
+                    <p><strong>E-mail:</strong> ${email}</p>
+                    <p><strong>Assunto:</strong> ${assunto}</p>
+                    <p><strong>Mensagem:</strong> ${mensagem}</p>
+                    <div style="margin-top:2.5rem;text-align:center;">
+                        <a href="/" class="btn">Voltar à página inicial</a>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <p class="footer-text">&copy; 2025 DevBurger. Todos os direitos reservados.</p>
+            </footer>
+        </body>
+        </html>
+    `);
 });
 
 app.get('/api/lanches', (req, res) => {
