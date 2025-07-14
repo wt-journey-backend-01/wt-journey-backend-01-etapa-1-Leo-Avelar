@@ -10,36 +10,41 @@
 <body>
     <header>
         <h1>DevBurger</h1>
+        <p>De dev para dev!</p>
     </header>
 
     <main>
-        <h2>Cardápio</h2>
         <section>
-            <div class="cardapio" id="cardapio"></div>
-        <section>
+            <h2 class="section-title">Nosso Cardápio</h2>
+            <div class="row" id="cardapio"></div>
+        </section>
         
-        <h2>Sugestão</h2>
-        <article>
-            <form action="/sugestao" method="GET">
-                <div>
-                    <label for="name">Informe o nome do lanche:</label>
-                    <input type="text" id="name" name="nome" required>
-                </div>
-
-                <div>
-                    <label for="ingredients">Informe os ingredientes:</label>
-                    <textarea id="ingredients" name="ingredientes" required></textarea>
-                </div>
-
-                </br>
-                <button type="submit">Enviar</button>
-            </form>
-        </article>
+        <hr class="divider">
+        
+        <section>
+            <h2 class="section-title">Sua Sugestão</h2>
+            <p>Tem uma ideia nova para adicionar ao cardápio? Compartilhe conosco!</p>
+            <article>
+                <form action="/sugestao" method="GET" class="form">
+                    <div class="form-group">
+                        <label for="name" class="label">Nome do lanche:</label>
+                        <input type="text" id="name" name="nome" class="input" 
+                               placeholder="Escolha um nome ..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredients" class="label">Ingredientes:</label>
+                        <textarea id="ingredients" name="ingredientes" class="input" rows="1" placeholder="Descreva os ingredientes ..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Sugestão</button>
+                </form>
+            </article>
+        </section>
     </main>
     
     <footer>
-        <p> &copy; 2025 DevBurger. Todos os direitos reservados.</p>
-        <a href="/contato">Entre em contato</a> | <a href="/api/lanches">API Lanches</a>
+        <p class="footer-text">&copy; 2025 DevBurger. Todos os direitos reservados.</p>
+        <a href="/contato" class="btn btn-footer">Entre em contato</a>
+        <a href="/api/lanches" class="btn btn-footer">API Lanches</a>
     </footer>
 </body>
 </html>

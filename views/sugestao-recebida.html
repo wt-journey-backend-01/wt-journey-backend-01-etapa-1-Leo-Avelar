@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página não encontrada</title>
+    <title>Sugestão Recebida - DevBurger</title>
     <link href="/css/style.css" rel="stylesheet">
+    <script src="/scripts/sugestao-recebida.js" defer></script>
 </head>
 <body>
     <header>
         <h1 class="title">DevBurger</h1>
-        <p>Página não encontrada</p>
     </header>
 
     <main>
+        <h2 class="section-title">Sugestão recebida!</h2>
+        
         <div class="form">
-            <h2 class="section-title">Erro 404</h2>
-            <p>Desculpe, não conseguimos encontrar a página que você procurava.</p>
-            <p>Ela pode ter sido removida, renomeada ou o endereço digitado está incorreto.</p>
+            <p>Obrigado por contribuir com o nosso cardápio!</p>
+            <p><strong>Nome do lanche:</strong> <span id="nome" class="break-string"></span></p>
+            <p><strong>Ingredientes:</strong> <span id="ingredientes" class="break-string"></span></p>
             <div style="margin-top:2.5rem;text-align:center;">
-                <a href="/" class="btn">Voltar para a página inicial</a>
+                <a href="/" class="btn">Voltar à página inicial</a>
             </div>
         </div>
     </main>

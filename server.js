@@ -19,16 +19,7 @@ app.get('/sugestao', (req, res) => {
         return res.status(400).send('<h1>Erro: Parâmetros inválidos!</h1>');
     }
 
-    res.status(200).send(`
-        <h1>A DevBurger agradece sua sugestão!</h1>
-        <h2>Vamos analisar seu pedido!</h2>
-        </br>
-        <p><strong>Nome: </strong>${nome}</p>
-        <p><strong>Ingredientes: </strong>${ingredientes}</p>
-        </br>
-        <p>Obrigado por contribuir com o nosso cardápio!</p>
-        <a href="/">Voltar para a página inicial</a>
-        `);
+    res.status(200).sendFile(path.join(__dirname, 'views', 'sugestao-recebida.html'));
 });
 
 app.get('/contato', (req, res) => {
@@ -53,13 +44,7 @@ app.get('/contato-recebido', (req, res) => {
         return res.redirect('/not-found');
     }
 
-    res.status(200).type('html').send(`
-        <h1>Agradecemos sua mensagem, ${nome}!</h1>
-        <p>E-mail: ${email}</p>
-        <p>Assunto: ${assunto}</p>
-        <p>Mensagem: ${mensagem}</p>
-        <a href="/">Voltar para a página inicial</a>
-    `);
+    res.status(200).sendFile(path.join(__dirname, 'views', 'contato-recebido.html'));
 });
 
 app.get('/api/lanches', (req, res) => {
